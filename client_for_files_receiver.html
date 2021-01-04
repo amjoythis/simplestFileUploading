@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing client-server articulation with PHP</title>
+</head>
+<body>
+    <form
+        id="idForm1"
+        method="post"
+        enctype="application/x-www-form-urlencoded"
+        action="simplest_file_receiver.php"
+    >
+        <label for="idName">Your Name:</label>
+        <input type="text" id="idName" name="name" placeholder="your name here" value="Artur"><br>
+        <label for="idNumber">Your Number:</label>
+        <input type="text" id="idNumber" name="number" placeholder="your number here" value="1234567890"><br>
+        <input type="submit" value="sent this data to the server">
+    </form>
+
+    <hr>
+
+    <form
+            id="idForm2"
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+            action="simplest_file_receiver.php"
+    >
+        <label for="idName">Your Name:</label>
+        <input type="text" id="idName2" name="name" placeholder="your name here" value="Artur"><br>
+        <label for="idNumber">Your Number:</label>
+        <input type="text" id="idNumber2" name="number" placeholder="your number here" value="1234567890"><br>
+        <label for="idFile">Your Photo File:</label>
+        <input type="file" id="idFile" name="photo"><br>
+        <input type="submit" value="sent this data to the server">
+    </form>
+
+    <hr>
+
+    <form
+            id="idForm3"
+            method="post"
+            enctype="multipart/form-data"
+            action="simplest_file_receiver.php"
+    >
+        <label for="idName">Your Name:</label>
+        <input type="text" id="idName3" name="name" placeholder="your name here" value="Artur"><br>
+        <label for="idNumber">Your Number:</label>
+        <input type="text" id="idNumber3" name="number" placeholder="your number here" value="1234567890"><br>
+        <label for="idFile">Your Photo File:</label>
+        <input type="file" id="idFile3" name="photo"><br>
+        <input type="submit" value="sent this data to the server">
+    </form>
+
+    <hr>
+
+    <form
+            id="idForm4"
+            method="post"
+            enctype="multipart/form-data"
+            action="simplest_file_receiver.php"
+    >
+        <label for="idName">Your Name:</label>
+        <input type="text" id="idName4" name="name" placeholder="your name here" value="Artur"><br>
+        <label for="idNumber">Your Number:</label>
+        <input type="text" id="idNumber4" name="number" placeholder="your number here" value="1234567890"><br>
+        <label for="idFile">Your Photo File(s):</label>
+        <input type="file" multiple id="idFile4" name="photos[]"><br>
+        <input type="submit" value="sent this data to the server">
+    </form>
+</body>
+</html>
