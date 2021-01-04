@@ -75,7 +75,7 @@ function receiveMultipleFiles(
 function isMultipleUploadsFileElement(
     $pNameOfFileElement
 ){
-   $bCheckElementExists = array_key_exists($_FILES, $pNameOfFileElement);
+   $bCheckElementExists = array_key_exists($pNameOfFileElement, $_FILES);
    if ($bCheckElementExists){
        return is_array($_FILES[$pNameOfFileElement]['name']);
    }
@@ -84,7 +84,8 @@ function isMultipleUploadsFileElement(
 }//isMultipleUploadsFileElement
 
 foreach($_FILES as $strNameOfFileElement => $aDataOfFileElement){
-    if (!isMultipleUploadsFileElement($strNameOfFileElement)){
+    $bIsMultiple = isMultipleUploadsFileElement($strNameOfFileElement);
+    if (!$bIsMultiple){
         receiveSingleFile($strNameOfFileElement);
     }
     else{
