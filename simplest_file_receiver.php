@@ -72,7 +72,22 @@ function receiveMultipleFiles(
     return $aRet;
 }//receiveMultipleFiles
 
+function isMultipleUploadsFileElement(
+    $pNameOfFileElement
+){
+   $bCheckElementExists = array_key_exists($_FILES, $pNameOfFileElement);
+   if ($bCheckElementExists){
+       return is_array($_FILES[$pNameOfFileElement]['name']);
+   }
+
+   return false;
+}//isMultipleUploadsFileElement
+
 foreach($_FILES as $strNameOfFileElement => $aDataOfFileElement){
-    //receiveSingleFile($strNameOfFileElement);
-    receiveMultipleFiles($strNameOfFileElement);
+    if (!isMultipleUploadsFileElement($strNameOfFileElement)){
+        receiveSingleFile($strNameOfFileElement);
+    }
+    else{
+        receiveMultipleFiles($strNameOfFileElement);
+    }
 }//foreach
